@@ -5,7 +5,7 @@
 #include <iostream>
 
 template <typename T>
-inline void printer (T *source, int length) {
+void printer (T *source, int length) {
 	int i;
 
 	for (i = 0; i < length; i++) {
