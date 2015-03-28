@@ -1,6 +1,8 @@
 // Copyright 2015 Towry Wang (http://towry.me)
 // MIT Licensed
 
+#include "../include/sort.hpp"
+
 namespace sort {
 
   void bubble (int array[], int length) {
@@ -12,10 +14,8 @@ namespace sort {
 
       for (int i = 1; i < length; i++) {
         if (array[i-1] > array[i]) {
-          tmp = array[i];
-
-          array[i] = array[i-1];
-          array[i-1] = tmp;
+          swap<int>(array, i, i-1);
+          
           swaped = true;
         }
       }

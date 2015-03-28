@@ -4,17 +4,20 @@
 #include "../include/sort.hpp"
 
 namespace sort {
-  void select (int[], int);
+  void merge (int[], int);
 }
 
 int main () {
-  int test[] = {3, 6, 2, 12, 5, 11};
+  int a[11];
+  random_array(a, 11);
+
+  printer<int>(a, LENGTHOF(a));
 
   walltime::start();
-  sort::select(test, LENGTHOF(test));
+  sort::merge(a, LENGTHOF(a));
   walltime::end();
 
-  printer<int>(test, LENGTHOF(test));
+  printer<int>(a, LENGTHOF(a));
 
-  return 0;
+  return 0; 
 }

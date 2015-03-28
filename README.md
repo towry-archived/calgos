@@ -2,6 +2,6 @@
 
 :)
 
-## Copyleft
+---
 
-Copyleft 2015 by Towry Wang
+Copyright 2015 by Towry Wang

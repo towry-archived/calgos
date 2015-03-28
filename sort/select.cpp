@@ -1,22 +1,24 @@
 // Copyright 2015 Towry Wang (http://towry.me)
 // MIT Licensed
 
+#include "../include/sort.hpp"
+
 namespace sort {
 
   void select (int array[], int length) {
-    int i, j, m;
+    int i, j, m, tmp;
 
     for (i = 0; i < length; i++) {
-      m = array[i];
+      m = i;
 
-      for (j = i; j < length; j++) {
-        if (array[j] < m) {
-          m = array[j];
+      for (j = i+1; j < length; j++) {
+        if (array[j] < array[m]) {
+          m = j;
         }
       }
 
-      if (array[i] > m) {
-        array[i] = m;
+      if (array[i] > array[m]) {
+        swap<int>(array, i, m);
       }
     }
   }
