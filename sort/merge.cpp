@@ -7,7 +7,7 @@ namespace sort {
 
   static void _merge (int array[], int low, int mid, int high) {
     int i, j;
-    int *tmp = new int(high - low + 1);
+    int *tmp = new int[high - low + 1];
     int n = 0;
 
     i = low;
@@ -32,8 +32,8 @@ namespace sort {
     for (i = 0; i < n; i++) {
       array[low++] = tmp[i];
     }
-
-    delete tmp;
+    
+    delete[] tmp;
   }
 
   void merge (int array[], int length) {
@@ -50,6 +50,7 @@ namespace sort {
 
       if (index + seg < length) {
         _merge(array, index, index + seg - 1, length -1);
+        index += seg * 2;
       }
 
       seg += seg;

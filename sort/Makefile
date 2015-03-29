@@ -1,12 +1,12 @@
 TARGET := $(target)
 TARGETCPP := $(TARGET).cpp
 TARGETTEST := test-$(TARGETCPP)
-OUTPUT=$(TARGET)
+OUTPUT=bin/$(TARGET)
 ifeq ($(OS), Windows_NT)
-	OUTPUT = $(TARGET).exe
+	OUTPUT = bin/$(TARGET).exe
 endif
 CC := c++
-CFLAGS := --std=gnu++11 -o $(OUTPUT)
+CFLAGS := -g --std=gnu++11 -o $(OUTPUT)
 
 ifndef TARGET 
 $(error target is not set)
