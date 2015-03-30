@@ -5,33 +5,38 @@
 
 namespace sort {
 
+  int partition (int *arr, int left, int right) {
+    int pivot = arr[left];
+    int tmp;
+
+    while (left < right) {
+      while (left < right && arr[right] >= pivot)
+        right--;
+      if (left < right) {
+        arr[left++] = arr[right];
+      }
+      while (left < right && arr[left] <= pivot)
+        left++;
+      if (left < right) {
+        arr[right--] = arr[left];
+      }
+    } // endwhile
+    arr[left] = pivot;
+    
+    return left;
+  }
+
   void quick_sort (int *array, int left, int right) {
     if (right - left <= 0) {
       return;
     }
-    
-    int tmp, l, k, p;
 
-    l = right - left + 1;
-    p = left;
-    k = p + 1;
+    int pivot;
 
-    for (int j = p+1; j < l; j++) {
-      if (array[j] < array[p]) {
-        tmp = array[j];
-        array[j] = array[k];
-        array[k] = tmp;
-        k++;
-      }
-    }
-
-    tmp = array[p];
-    array[p] = array[k-1];
-    array[k-1] = tmp;
-
+    pivot = partition(array, left, right);
     // leave the pivot where it was
-    quick_sort(array, left, k-2);
-    quick_sort(array, k, right);
+    quick_sort(array, left, pivot - 1);
+    quick_sort(array, pivot + 1, right);
   }
 
   void quick (int *array, int length) {
