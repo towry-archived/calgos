@@ -2,6 +2,16 @@
 
 This is the sort part. 
 
+*Finished*:
+
+- [x] bubble
+- [x] select
+- [x] insert
+- [x] merge
+- [x] quick
+- [x] counting
+- [x] radix
+
 ## Test
 
 Suppose you want to test bubble sort:
