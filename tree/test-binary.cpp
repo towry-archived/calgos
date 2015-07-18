@@ -1,4 +1,4 @@
-#include "binary.hpp"
+#include "binary.h"
 
 #include <iostream>
 

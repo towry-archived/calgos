@@ -1,7 +1,7 @@
 // Copyright (c) 2015 Towry Wang 
 // All rights reserved.
 
-#include "binary.hpp"
+#include "binary.h"
 
 #include <iostream>
 
