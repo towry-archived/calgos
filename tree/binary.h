@@ -1,4 +1,3 @@
-// binary.hpp
 
 #pragma once
 
