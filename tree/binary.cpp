@@ -7,7 +7,8 @@
 
 namespace tree {
   template <typename T>
-  void insert (T key, Node<T>*& node) {
+  void insert (T key, Node<T>*& node) 
+  {
     if (node == NULL) {
       node = new Node<T>;
       node->left = NULL;
@@ -17,6 +18,36 @@ namespace tree {
       insert(key, node->left);
     } else {
       insert(key, node->right);
+    }
+  }
+
+  template <typename T>
+  void DeleteNodeFromTree (BinaryTree<T> *tree, T key, Node<T> *&node)
+  {
+    if (!node) {
+      return;
+    }
+
+    // Found the node to be deleted.
+    if (key == node->value) {
+      if (!node->left && !node->right) {
+        delete node;
+        node = NULL;
+      } else if (!node->left && node->right) {
+        node->value = node->right->value;
+        DeleteNodeFromTree(tree, key, node->right);
+      } else {
+        node->value = node->left->value;
+        DeleteNodeFromTree(tree, key, node->left);
+      }
+    }
+
+    // Since the key is less than the node's value,
+    // that's mean the node that hold the key is left sub-node of node.
+    if (key < node->value) {
+      DeleteNodeFromTree(tree, key, node->left);
+    } else {
+      DeleteNodeFromTree(tree, key, node->right);
     }
   }
 
@@ -124,37 +155,6 @@ namespace tree {
     else {
       return;
     }
-  }
-
-  template <typename T>
-  void DeleteNodeFromTree (BinaryTree<T> *tree, T key, Node<T> *&node)
-  {
-    if (!node) {
-      return;
-    }
-
-    // Found the node to be deleted.
-    if (key == node->value) {
-      if (!node->left && !node->right) {
-        delete node;
-        node = NULL;
-      } else if (!node->left && node->right) {
-        node->value = node->right->value;
-        DeleteNodeFromTree(tree, key, node->right);
-      } else {
-        node->value = node->left->value;
-        DeleteNodeFromTree(tree, key, node->left);
-      }
-    }
-
-    // Since the key is less than the node's value,
-    // that's mean the node that hold the key is left sub-node of node.
-    if (key < node->value) {
-      DeleteNodeFromTree(tree, key, node->left);
-    } else {
-      DeleteNodeFromTree(tree, key, node->right);
-    }
-
   }
 }
 
