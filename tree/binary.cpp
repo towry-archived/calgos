@@ -28,26 +28,31 @@ namespace tree {
       return;
     }
 
-    // Found the node to be deleted.
-    if (key == node->value) {
-      if (!node->left && !node->right) {
-        delete node;
-        node = NULL;
-      } else if (!node->left && node->right) {
-        node->value = node->right->value;
-        DeleteNodeFromTree(tree, key, node->right);
-      } else {
-        node->value = node->left->value;
-        DeleteNodeFromTree(tree, key, node->left);
-      }
-    }
-
     // Since the key is less than the node's value,
     // that's mean the node that hold the key is left sub-node of node.
     if (key < node->value) {
       DeleteNodeFromTree(tree, key, node->left);
     } else {
       DeleteNodeFromTree(tree, key, node->right);
+    }
+
+    else {
+      if (node->left == NULL) {
+        Node<T> *tmp = node;
+        node = node->right;
+        delete tmp;
+      } else if (node->right == NULL) {
+        Node<T> *tmp = node;
+        node = node->left;
+        delete tmp;
+      } else {
+        Node<T> *tmp = node->right;
+        while (tmp != NULL) {
+          tmp = tmp->left;
+        }
+        node->value = tmp->value;
+        DeleteNodeFromTree(tree, tmp->value, tmp);
+      }
     }
   }
 
@@ -56,6 +61,7 @@ namespace tree {
 
   template <typename T>
   BinaryTree<T>::~BinaryTree () {
+    // tranverse and delete all node
     delete root_;
     root_ = NULL;
   }
