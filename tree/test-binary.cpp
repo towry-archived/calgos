@@ -40,4 +40,14 @@ int main () {
   // test post
   std::cout << "Test post\n";
   bt->Traverse(tree::POST, bt->root_, &TraverseCallbackTest<int>);
+
+  // deleting
+  std::cout << "Test deleting\n";
+  bt->Delete(3);
+
+  // after deleting
+  std::cout << "After deleting: \nTraverse in pre order:\n";
+  bt->Traverse(tree::PRE, bt->root_, &TraverseCallbackTest<int>);
+
+  return 0;
 }

@@ -32,7 +32,7 @@ namespace tree {
     // that's mean the node that hold the key is left sub-node of node.
     if (key < node->value) {
       DeleteNodeFromTree(tree, key, node->left);
-    } else {
+    } else if (key > node->value) {
       DeleteNodeFromTree(tree, key, node->right);
     }
 
@@ -50,6 +50,8 @@ namespace tree {
         while (tmp != NULL) {
           tmp = tmp->left;
         }
+        // copy the content of the inorder successor
+        // then delete the inorder successor
         node->value = tmp->value;
         DeleteNodeFromTree(tree, tmp->value, tmp);
       }
