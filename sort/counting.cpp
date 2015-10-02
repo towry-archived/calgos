@@ -13,7 +13,7 @@ namespace sort {
     }
 
     int *count_arr = new int[100]();
-    int *sorted_arr = new int[length];
+    int *sorted_arr = new int[length]();
 
     // example
     // 5, 4, 1, 12, 1, 4, 1
