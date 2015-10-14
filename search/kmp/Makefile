@@ -1,5 +1,5 @@
 TARGET := $(target)
-TARGETCPP := $(TARGET).cpp
+TARGETCPP := $(TARGET).cc
 TARGETTEST := test-$(TARGETCPP)
 OUTPUT=bin/$(TARGET)
 ifeq ($(OS), Windows_NT)
@@ -14,3 +14,4 @@ endif
 
 all: $(TARGETCPP) $(TARGETTEST)
 	$(CC) $^ $(CFLAGS)
+
