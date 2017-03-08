@@ -6,7 +6,7 @@ arr = [...]
 N = length(arr)
 
 for i from 1 to N
-	# select on from unsorted
+	# select one from unsorted
 	for j from 0 to i
 		# insert into the sorted
 		if arr[i] < arr[j]
