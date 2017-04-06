@@ -5,7 +5,7 @@
 template <typename T>
 void TraverseCallbackTest(tree::Node<T> *node)
 {
-  if (node->value != NULL) {
+  if (node->value) {
     std::cout << node->value << std::endl;
   } else {
     std::cout << "No value here\n";
@@ -24,8 +24,13 @@ namespace sort {
 	}
 
 	void heapsort(int arr[], int len) {
+		// Represent array in tree.
 		tree::BinaryTree<int> *tree_ = createTreeFromArray<int>(arr, len);
+
+		// Test by traversing the tree.
 		tree_->Traverse(tree::PRE, tree_->root_, &TraverseCallbackTest<int>);
+
+		// Free memory.
 		delete tree_;
 	}
 }

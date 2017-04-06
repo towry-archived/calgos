@@ -5,6 +5,8 @@ namespace sort {
 
 int main () {
 	int arr[] = {1, 5, 10, 32, 23, 11};
-	sort::heapsort(arr, 7);
+	int len = 6;
+
+	sort::heapsort(arr, len);
 }
 
