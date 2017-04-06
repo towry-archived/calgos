@@ -5,7 +5,7 @@
 using namespace tree;
 
 template <typename T>
-void TraverseCallbackTest(tree::Node<T> *node) 
+void TraverseCallbackTest(tree::Node<T> *node)
 {
   if (node->value) {
     std::cout << node->value << std::endl;
