@@ -1,10 +1,6 @@
 # Algorithm in C PLUS PLUS
 
-​
-
 *I'm not a great programmer; I'm just a good programmer with great habits.* -  [Kent Beck](http://www.goodreads.com/author/show/25211.Kent_Beck)
-
-
 
 ## Algorithms
 
