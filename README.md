@@ -18,6 +18,7 @@
 - [x] radix
 - [x] select
 - [x] heap
+- [x] bucket
 
 ### Search
 
