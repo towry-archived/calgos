@@ -23,6 +23,7 @@
 ### Data structure
 
 - [x] binary tree
+- [ ] Interval tree
 
 ### Graph
 
